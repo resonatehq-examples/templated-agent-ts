@@ -47,7 +47,7 @@ export function* agent(
       for (const toolCall of response.tool_calls) {
         const toolName = toolCall.function.name;
         const toolArgs = JSON.parse(toolCall.function.arguments);
-        const handle = yield* context.beginRun(toolName, toolArgs);
+        const handle = yield* context.beginRpc(toolName, toolArgs);
         toolHandles.push({
           tool_call_id: toolCall.id,
           name: toolName,

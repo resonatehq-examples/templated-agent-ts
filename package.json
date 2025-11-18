@@ -20,7 +20,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@resonatehq/sdk": "^0.8.6",
+    "@resonatehq/sdk": "github:resonatehq/resonate-sdk-ts#dff97775f58a1152ee8e8a3f82aeb7e92727a3ab",
     "better-sqlite3": "^12.4.1",
     "openai": "^4.0.0",
     "ts-node": "^10.9.2"

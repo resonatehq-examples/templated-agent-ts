@@ -1,4 +1,5 @@
-import { Resonate } from "@resonatehq/sdk";
+import { Resonate, KafkaMessageSource, KafkaNetwork } from "@resonatehq/sdk";
+
 import OpenAI from "openai";
 import Database from "better-sqlite3";
 import { agent } from "./agent";
@@ -35,8 +36,17 @@ const config = {
 };
 
 async function main() {
-  // Set export RESONATE_URL to connect to a resonate server
-  const resonate = new Resonate();
+  const group = "default";
+  const pid = "default-8f32ad1c";
+  const addr = "kafka://default";
+
+  const network = new KafkaNetwork({ group, pid });
+  await network.start();
+
+  const messageSource = new KafkaMessageSource({ group, pid });
+  await messageSource.start();
+
+  const resonate = new Resonate({ group, pid, addr, network, messageSource });
 
   resonate.setDependency(
     "aiclient",
