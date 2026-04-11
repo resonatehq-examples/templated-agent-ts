@@ -38,7 +38,7 @@ export function* agent(
 
   while (iteration++ < config.maxIterations) {
     const response: OpenAI.Chat.Completions.ChatCompletionMessage =
-      yield context.run(complete, messages, config.tools, config.model);
+      yield* context.run(complete, messages, config.tools, config.model);
 
     messages.push(response as Message);
 
