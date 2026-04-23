@@ -5,7 +5,7 @@ A generic, extensible agent template powered by Resonate's Distributed Async Awa
 **Key Architecture Principles:**
 
 - **Spatial Transparency**: One execution spans across multiple processes
-- **Temporal Transparency**: One execution spans arbitrary time periods
+- **Time Transparency**: One execution spans arbitrary time periods
 
 ## The Business Analyst
 
